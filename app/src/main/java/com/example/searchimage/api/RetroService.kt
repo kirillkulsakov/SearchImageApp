@@ -12,7 +12,7 @@ import retrofit2.http.Query
 const val ACCESS_KEY = "bd3I4tZGQlOvQeWKYiBwPCS2BkKnwJnLDn-WTpM2fjA"
 interface RetroService {
 
-    @Headers("Accept-Version: v1", "Authorization: Client-ID $ACCESS_KEY")
+    @Headers("Accept-Version: v1", "Authorization: Client-ID ${BuildConfig.UNSPLASH_ACCESS_KEY}")
     @GET("/search/photos")
     fun getDataFormAPI(
         @Query("query") query:String ,
