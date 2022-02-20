@@ -6,9 +6,10 @@
 
 
     <ImageView
-        android:id="@+id/ivPhoto"
+        android:id="@+id/ivFullPhoto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
 
     <View
         android:id="@+id/view"
@@ -16,7 +17,7 @@
         android:layout_height="50dp"
         android:alpha="0.4"
         android:background="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/ivPhoto"
+        app:layout_constraintBottom_toBottomOf="@+id/ivFullPhoto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
@@ -29,6 +30,8 @@
         android:text="@string/name"
         android:textColor="@color/white"
         android:textSize="14sp"
+        android:maxLines="1"
+        android:ellipsize="end"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view" />

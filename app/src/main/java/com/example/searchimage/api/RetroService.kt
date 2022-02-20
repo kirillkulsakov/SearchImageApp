@@ -18,6 +18,6 @@ interface RetroService {
         @Query("query") query:String ,
         @Query("page") page: Int = 1,
         @Query("per_page") per_page: Int = 20
-        ):Call<List<UnsplashData>>
+        ):Call<UnsplashData>
 
 }
