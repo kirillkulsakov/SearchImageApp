@@ -9,7 +9,6 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
 
-const val ACCESS_KEY = "bd3I4tZGQlOvQeWKYiBwPCS2BkKnwJnLDn-WTpM2fjA"
 interface RetroService {
 
     @Headers("Accept-Version: v1", "Authorization: Client-ID ${BuildConfig.UNSPLASH_ACCESS_KEY}")
