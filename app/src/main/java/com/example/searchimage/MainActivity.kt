@@ -10,6 +10,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.searchimage.data.DataList
 import com.example.searchimage.data.UnsplashData
 import com.example.searchimage.databinding.ActivityMainBinding
 import com.example.searchimage.ui.ConnectionLiveData
@@ -41,6 +42,8 @@ class   MainActivity : AppCompatActivity() {
         cld.observe(this) { isConnected ->
             if (!isConnected) {
                 binding.tvEthernetError.visibility = View.VISIBLE
+                photoAdapter.setListData(null)
+                photoAdapter.notifyDataSetChanged()
             }
             else{
                 binding.tvEthernetError.visibility = View.INVISIBLE
@@ -62,8 +65,17 @@ class   MainActivity : AppCompatActivity() {
         val viewModel = ViewModelProvider(this)?.get(MainActivityViewModel::class.java)
         viewModel.getPhotoListDataObserver().observe(this, Observer<UnsplashData> {
 
-            photoAdapter.setListData(it.result)
-            photoAdapter.notifyDataSetChanged()
+            if (it.result.isEmpty()){
+                binding.tvFoundError.visibility = View.VISIBLE
+                photoAdapter.setListData(it.result)
+                photoAdapter.notifyDataSetChanged()
+            } else{
+                binding.tvFoundError.visibility = View.GONE
+                photoAdapter.setListData(it.result)
+                photoAdapter.notifyDataSetChanged()
+            }
+
+
 
         })
         supportActionBar?.title = input.capitalize()

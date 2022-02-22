@@ -9,12 +9,15 @@ import com.example.searchimage.api.RetroInstance
 import com.example.searchimage.api.RetroService
 import com.example.searchimage.data.DataList
 import com.example.searchimage.data.UnsplashData
+import com.example.searchimage.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivityViewModel: ViewModel() {
 
+
+    private lateinit var binding: ActivityMainBinding
 
     var photoListData: MutableLiveData<UnsplashData> = MutableLiveData()
 
@@ -39,7 +42,6 @@ class MainActivityViewModel: ViewModel() {
             override fun onFailure(call: Call<UnsplashData>, t: Throwable) {
 
             }
-
 
         })
 

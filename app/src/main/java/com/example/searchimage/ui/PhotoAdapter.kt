@@ -20,9 +20,10 @@ class PhotoAdapter (context: Context) : RecyclerView.Adapter<PhotoAdapter .MyVie
     var items = ArrayList<DataList>()
     val _context = context
 
-    fun setListData(data: ArrayList<DataList>){
+    fun setListData(data: ArrayList<DataList>?){
         Log.i("Data", "данные: $data")
-        this.items = data
+
+        if(data!= null) this.items = data
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoAdapter.MyViewHolder {
